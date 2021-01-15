@@ -1,0 +1,131 @@
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
+android {
+    compileSdkVersion rootProject.ext.android.compileSdkVersion
+    buildToolsVersion rootProject.ext.android.buildToolsVersion
+
+    defaultConfig {
+        minSdkVersion rootProject.ext.android.minSdkVersion
+        targetSdkVersion rootProject.ext.android.targetSdkVersion
+        versionCode rootProject.ext.android.versionCode
+        versionName rootProject.ext.android.versionName
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles 'consumer-rules.pro'
+
+//        javaCompileOptions {
+//
+//            annotationProcessorOptions {
+//
+//                arguments = [AROUTER_MODULE_NAME: project.getName()]
+//
+//            }
+//        }
+
+        ndk {
+            //设置支持的SO库架构（开发者可以根据需要，选择一个或多个平台的so）
+            abiFilters "armeabi", "armeabi-v7a", "arm64-v8a", "x86", "x86_64"
+        }
+    }
+    /**
+     * splits参数说明：
+     * enable： 是否启用ABI拆分机制
+     * reset()：重置ABI列表为只空字符串，一半和include、exclude一起使用，如果要用必须在include和exclude前面
+     * include：指明要包含哪些ABI，目前使用最多的伪64位处理器的arm64-v8a，其次才是armeabi-v7a
+     * exclude：默认包含下所有ABI，可以移除一些ABI
+     * universalApk：是否打包一个通用版本，包含所有的ABI，默认值为 false
+     * abiFilters过滤：
+     * abiFilters过滤就是在splits的基础之上，再选择打入universal中所包含的几种处理器架构的文件夹的
+     */
+    splits {
+        abi {
+            enable true
+            reset()
+            include 'armeabi'//, 'x86_64'//只打包armeabi平台的，就算有其他文件夹也不管
+//            include 'armeabi'//, 'armeabi-v7a', 'arm64-v8a', 'mips', 'x86', 'x86_64'
+            /**
+             * 例如：include 'arm64-v8a','armeabi-v7a','armeabi'
+             *      ndk {abiFilters 'arm64-v8a',"armeabi-v7a"}
+             *
+             * 那么这种情况下会打包会生成4个apk
+             * 第一个：app-arm64-v8a-release.apk，里面只会包含arm64-v8a文件夹中的so文件
+             * 第二个：app-armeabi-v7a-release.apk，里面只会包含armeabi-v7a文件夹中的so文件
+             * 第三个：app-armeabi-release.apk，里面只会包含armeabi文件夹中的so文件
+             * 注意第四个apk
+             * 第四个：app-universal-release.apk，里面会包含arm64-v8a和armeabi-v7a文件夹中的so文件（不包含armeabi文件中so文件）
+             *
+             * abiFilters过滤就是在splits的基础之上，再选择打入universal中所包含的几种处理器架构的文件夹的
+             * */
+        }
+    }
+
+    /**
+     * 让Android studio支持java8
+     */
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    /**
+     * 要想kotlin也用jdk1.8编译，需要添加kotlin相关的编译配置
+     */
+    kotlinOptions {
+        jvmTarget = "1.8"
+    }
+
+    /**
+     * 开启dataBinding
+     */
+    buildFeatures {
+        dataBinding = true
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+    implementation 'androidx.appcompat:appcompat:1.2.0'
+    implementation 'androidx.core:core-ktx:1.3.2'
+    testImplementation 'junit:junit:4.13'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.2'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
+
+    api project(path: ':lib_mvvm')
+
+    api 'com.android.support:multidex:1.0.3'
+    //MMKV (SharePreferences替代方案)
+    api 'com.tencent:mmkv-static:1.2.4'
+    // Room数据库
+    api "androidx.room:room-runtime:2.2.5"
+    annotationProcessor "androidx.room:room-compiler:2.2.5"
+//    api "androidx.room:room-rxjava2:2.2.5"
+    //OkHttp log拦截器
+    api 'com.squareup.okhttp3:logging-interceptor:4.8.1'
+    //路由
+    api 'com.alibaba:arouter-api:1.4.1'
+    //material design
+    api 'com.google.android.material:material:1.3.0-alpha04'
+    //EventBus
+//    api 'org.greenrobot:eventbus:3.2.0'
+    // Navigation
+    api 'androidx.navigation:navigation-fragment-ktx:2.3.1'
+    api 'androidx.navigation:navigation-ui-ktx:2.3.1'
+    //android分页组件
+//    api "android.arch.paging:runtime:1.0.1"
+    //高德导航(包含3D地图)
+    api 'com.amap.api:navi-3dmap:latest.integration'
+    //高德定位
+//    api 'com.amap.api:location:latest.integration'
+    //AndPermission 权限申请
+    api 'com.yanzhenjie:permission:2.0.3'
+}

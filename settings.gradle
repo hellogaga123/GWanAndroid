@@ -1,0 +1,5 @@
+include ':module_seekpile'
+include ':lib_core'
+include ':lib_mvvm'
+include ':app'
+rootProject.name = "GWanAndroid"

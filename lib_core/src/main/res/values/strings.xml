@@ -1,0 +1,15 @@
+<resources>
+<!--    <string name="app_name">GWanAndroid</string>-->
+    <string name="digits">android:digits=0123456789abcdefghigklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ@.</string>
+    <!--    main-->
+    <string name="home">首页</string>
+    <string name="blog">公众号</string>
+    <string name="search">搜索</string>
+    <string name="project_type">项目分类</string>
+    <string name="me">我</string>
+
+    <!--    login-->
+    <string name="userName">用户名</string>
+    <string name="passWord">密码</string>
+    <string name="btnLogin">登录</string>
+</resources>

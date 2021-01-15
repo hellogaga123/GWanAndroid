@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.gaga.gwanandroid.MainViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".MainActivity">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toTopOf="@+id/rgNavigation"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <fragment
+                android:id="@+id/fm_seekPile"
+                android:name="com.gaga.module_seekpile.seek_pile.SeekPileFragment"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+<!--            <fragment-->
+<!--                android:id="@+id/fm_discover"-->
+<!--                android:name="com.zcsy.gbcombination.main.DiscoverFragment"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="match_parent" />-->
+
+<!--            <fragment-->
+<!--                android:id="@+id/fm_charge"-->
+<!--                android:name="com.zcsy.gbcombination.main.ChargeFragment"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="match_parent" />-->
+
+<!--            <fragment-->
+<!--                android:id="@+id/fm_orders"-->
+<!--                android:name="com.zcsy.gbcombination.main.OrdersFragment"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="match_parent" />-->
+
+            <fragment
+                android:id="@+id/fm_mine"
+                android:name="com.gaga.gwanandroid.MeFragment"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+        </RelativeLayout>
+        <!--        <fragment-->
+        <!--            android:id="@+id/navHostFragment"-->
+        <!--            android:name="androidx.navigation.fragment.NavHostFragment"-->
+        <!--            android:layout_width="match_parent"-->
+        <!--            android:layout_height="0dp"-->
+        <!--            app:defaultNavHost="true"-->
+        <!--            app:layout_constraintBottom_toTopOf="@+id/bottom_navigation"-->
+        <!--            app:layout_constraintLeft_toLeftOf="parent"-->
+        <!--            app:layout_constraintRight_toRightOf="parent"-->
+        <!--            app:layout_constraintTop_toBottomOf="@+id/ctbBar"-->
+        <!--            app:navGraph="@navigation/navigation_main" />-->
+
+        <!--        <com.google.android.material.bottomnavigation.BottomNavigationView-->
+        <!--            android:id="@+id/bottomNavigation"-->
+        <!--            android:layout_width="match_parent"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            app:layout_constraintBottom_toBottomOf="parent"-->
+        <!--            app:menu="@menu/bottom_nav_menu" />-->
+        <RadioGroup
+            android:id="@+id/rgNavigation"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@android:color/white"
+            android:orientation="horizontal"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            app:layout_constraintBottom_toBottomOf="parent">
+
+            <RadioButton
+                android:id="@+id/rbSeekPile"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:button="@null"
+                android:checked="true"
+                android:drawableTop="@drawable/selector_radio_button"
+                android:gravity="center"
+                android:text="找电桩"
+                android:textColor="@drawable/selector_radio_button_text" />
+
+<!--            <RadioButton-->
+<!--                android:id="@+id/rbDiscover"-->
+<!--                android:layout_width="0dp"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_weight="1"-->
+<!--                android:button="@null"-->
+<!--                android:drawableTop="@drawable/selector_radio_button"-->
+<!--                android:gravity="center"-->
+<!--                android:text="发现"-->
+<!--                android:textColor="@drawable/selector_radio_button_text" />-->
+
+<!--            <RadioButton-->
+<!--                android:id="@+id/rbCharge"-->
+<!--                android:layout_width="0dp"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_weight="1"-->
+<!--                android:button="@null"-->
+<!--                android:drawableTop="@drawable/selector_radio_button"-->
+<!--                android:gravity="center"-->
+<!--                android:text="充电"-->
+<!--                android:textColor="@drawable/selector_radio_button_text" />-->
+
+<!--            <RadioButton-->
+<!--                android:id="@+id/rbOrders"-->
+<!--                android:layout_width="0dp"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_weight="1"-->
+<!--                android:button="@null"-->
+<!--                android:drawableTop="@drawable/selector_radio_button"-->
+<!--                android:gravity="center"-->
+<!--                android:text="订单"-->
+<!--                android:textColor="@drawable/selector_radio_button_text" />-->
+
+            <RadioButton
+                android:id="@+id/rbMine"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:button="@null"
+                android:drawableTop="@drawable/selector_radio_button"
+                android:gravity="center"
+                android:text="我的"
+                android:textColor="@drawable/selector_radio_button_text" />
+        </RadioGroup>
+<!--        <androidx.viewpager2.widget.ViewPager2-->
+<!--            android:id="@+id/mainViewpager"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="0dp"-->
+<!--            app:layout_constraintBottom_toTopOf="@+id/navView"-->
+<!--            app:layout_constraintTop_toTopOf="parent" />-->
+
+<!--        <com.google.android.material.bottomnavigation.BottomNavigationView-->
+<!--            android:id="@+id/navView"-->
+<!--            style="@style/Widget.MaterialComponents.BottomNavigationView"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            app:layout_constraintBottom_toBottomOf="parent"-->
+<!--            app:menu="@menu/bottom_nav_menu" />-->
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
