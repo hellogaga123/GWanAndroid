@@ -17,7 +17,7 @@ import org.koin.core.context.startKoin
 /**
  * @Author Gaga
  * @Date 2020/8/17 10:47
- * @Description
+ * @Description MyApplication
  */
 class MyApplication : BaseApplication() {
 
