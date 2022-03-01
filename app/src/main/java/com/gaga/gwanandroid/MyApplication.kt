@@ -10,8 +10,10 @@ import com.gaga.lib_mvvm.BaseApplication
 import com.google.gson.Gson
 import com.tencent.mmkv.MMKV
 import org.koin.android.ext.koin.androidContext
+import org.koin.android.ext.koin.androidLogger
 import org.koin.android.logger.AndroidLogger
 import org.koin.core.context.startKoin
+import org.koin.core.logger.Level
 
 
 /**
@@ -79,7 +81,7 @@ class MyApplication : BaseApplication() {
             PrintLogger:使用System.err/out打印日志
             EmptyLogger:不打印日志，默认就是该实现
              */
-            logger(AndroidLogger())
+            androidLogger(Level.NONE)
             /**
             设置Koin配置文件，需要放在assets文件夹中
             默认名称为：koin.propreties

@@ -94,11 +94,11 @@ android {
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
-    implementation 'androidx.appcompat:appcompat:1.2.0'
-    implementation 'androidx.core:core-ktx:1.3.2'
+    implementation 'androidx.appcompat:appcompat:1.4.1'
+    implementation 'androidx.core:core-ktx:1.7.0'
     testImplementation 'junit:junit:4.13'
-    androidTestImplementation 'androidx.test.ext:junit:1.1.2'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.3'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
 
     api project(path: ':lib_mvvm')
 
@@ -106,20 +106,20 @@ dependencies {
     //MMKV (SharePreferences替代方案)
     api 'com.tencent:mmkv-static:1.2.4'
     // Room数据库
-    api "androidx.room:room-runtime:2.2.5"
-    annotationProcessor "androidx.room:room-compiler:2.2.5"
+    api "androidx.room:room-runtime:2.4.2"
+    annotationProcessor "androidx.room:room-compiler:2.4.2"
 //    api "androidx.room:room-rxjava2:2.2.5"
     //OkHttp log拦截器
     api 'com.squareup.okhttp3:logging-interceptor:4.8.1'
     //路由
     api 'com.alibaba:arouter-api:1.4.1'
     //material design
-    api 'com.google.android.material:material:1.3.0-alpha04'
+    api 'com.google.android.material:material:1.6.0-alpha03'
     //EventBus
 //    api 'org.greenrobot:eventbus:3.2.0'
     // Navigation
-    api 'androidx.navigation:navigation-fragment-ktx:2.3.1'
-    api 'androidx.navigation:navigation-ui-ktx:2.3.1'
+    api 'androidx.navigation:navigation-fragment-ktx:2.4.1'
+    api 'androidx.navigation:navigation-ui-ktx:2.4.1'
     //android分页组件
 //    api "android.arch.paging:runtime:1.0.1"
     //高德导航(包含3D地图)
