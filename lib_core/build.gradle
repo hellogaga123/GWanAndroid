@@ -1,7 +1,9 @@
-apply plugin: 'com.android.library'
-apply plugin: 'kotlin-android'
-apply plugin: 'kotlin-android-extensions'
-apply plugin: 'kotlin-kapt'
+plugins{
+    id 'com.android.library'
+    id 'kotlin-android'
+    id 'kotlin-android-extensions'
+    id 'kotlin-kapt'
+}
 android {
     compileSdkVersion rootProject.ext.android.compileSdkVersion
     buildToolsVersion rootProject.ext.android.buildToolsVersion
@@ -104,7 +106,7 @@ dependencies {
 
     api 'com.android.support:multidex:1.0.3'
     //MMKV (SharePreferences替代方案)
-    api 'com.tencent:mmkv-static:1.2.4'
+    api 'com.tencent:mmkv:1.2.12'
     // Room数据库
     api "androidx.room:room-runtime:2.4.2"
     annotationProcessor "androidx.room:room-compiler:2.4.2"
@@ -112,7 +114,7 @@ dependencies {
     //OkHttp log拦截器
     api 'com.squareup.okhttp3:logging-interceptor:4.8.1'
     //路由
-    api 'com.alibaba:arouter-api:1.4.1'
+    api 'com.alibaba:arouter-api:1.5.2'
     //material design
     api 'com.google.android.material:material:1.6.0-alpha03'
     //EventBus

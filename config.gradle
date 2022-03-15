@@ -3,7 +3,7 @@ ext {
             applicationId    : "com.gaga.gwanandroid",
             compileSdkVersion: 31,
             targetSdkVersion : 31,
-            minSdkVersion    : 17,
+            minSdkVersion    : 21,
             buildToolsVersion: "29.0.3",
             versionCode      : 1,
             versionName      : "1.0",
@@ -27,7 +27,7 @@ ext {
             constraintlayout      : 'androidx.constraintlayout:constraintlayout:1.1.3',
 
 //            "butterknife-compiler": "com.jakewharton:butterknife-compiler:9.0.0-rc1",
-            "arouter"             : "com.alibaba:arouter-compiler:1.2.2",
+            "arouter"             : "com.alibaba:arouter-compiler:1.5.2",
 
             //    下拉刷新
             SmartRefreshLayout    : 'com.scwang.smartrefresh:SmartRefreshLayout:1.1.0-alpha-20',

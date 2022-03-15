@@ -89,7 +89,7 @@
                 android:checked="true"
                 android:drawableTop="@drawable/selector_radio_button"
                 android:gravity="center"
-                android:text="找电桩"
+                android:text="首页"
                 android:textColor="@drawable/selector_radio_button_text" />
 
 <!--            <RadioButton-->

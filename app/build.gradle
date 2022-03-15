@@ -1,7 +1,9 @@
-apply plugin: 'com.android.application'
-apply plugin: 'kotlin-android'
-apply plugin: 'kotlin-android-extensions'
-apply plugin: 'kotlin-kapt'
+plugins{
+    id 'com.android.application'
+    id 'kotlin-android'
+    id 'kotlin-android-extensions'
+    id 'kotlin-kapt'
+}
 kapt {
     arguments {
         arg("AROUTER_MODULE_NAME", project.getName())
@@ -114,7 +116,6 @@ android {
     android.applicationVariants.all {
         variant ->
             if (variant.name == 'appMainDebug') {
-//                buildConfigField("String", "BASE_URL", '"https://www.wanandroid.com/"')
                 buildConfigField("String", "BASE_URL", '"https://www.wanandroid.com/"')
             }
             if (variant.name == 'appMainRelease') {
@@ -128,7 +129,7 @@ android {
             }
             variant.outputs.all {
                 // 此处指定生成的apk文件名
-                outputFileName = "gb_combination" + "-" + variant.name + "-v" +
+                outputFileName = "g_wanandroid" + "-" + variant.name + "-v" +
                         defaultConfig.versionName + ".apk"
             }
     }
