@@ -9,6 +9,7 @@ import com.gaga.gwanandroid.databinding.ActivityLoginBinding
 import com.gaga.lib_core.constant.ARouterConfig
 import com.gaga.lib_mvvm.mvvm.BaseVMActivity
 import com.gaga.lib_mvvm.utils.toast
+import kotlinx.coroutines.flow.collect
 import org.koin.androidx.viewmodel.ext.android.getViewModel
 
 /**
@@ -22,20 +23,20 @@ class LoginActivity :
     override fun initVM(): LoginViewModel = getViewModel()
     override fun initView() {
     }
-    override fun initListener() {
-        super.initListener()
-        mViewModel.apply {
-            uiState.observe(this@LoginActivity, Observer {
-                if (it.isLoading) showProgressDialog()
-                it.isSuccess?.let {
-                    dismissProgressDialog()
-                    ARouter.getInstance().build(ARouterConfig.Url_MainActivity).navigation()
-                }
-                it.isError?.let { err ->
-                    dismissProgressDialog()
-                    toast(err)
-                }
-            })
-        }
-    }
+//    override fun initListener() {
+//        super.initListener()
+//        mViewModel.apply {
+//            flow.collect {
+//                if (it.isLoading) showProgressDialog()
+//                it.isSuccess?.let {
+//                    dismissProgressDialog()
+//                    ARouter.getInstance().build(ARouterConfig.Url_MainActivity).navigation()
+//                }
+//                it.isError?.let { err ->
+//                    dismissProgressDialog()
+//                    toast(err)
+//                }
+//            }
+//        }
+//    }
 }

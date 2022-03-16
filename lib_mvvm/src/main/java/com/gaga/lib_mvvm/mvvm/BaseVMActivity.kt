@@ -25,7 +25,4 @@ abstract class BaseVMActivity<VB : ViewDataBinding, VM : BaseViewModel>(
     }
 
     abstract fun initVM(): VM
-
-    //    abstract fun initVB(): VB
-
 }
