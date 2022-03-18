@@ -14,7 +14,7 @@ import com.gaga.lib_mvvm.mvvm.BaseActivity
  */
 class SplashActivity : BaseActivity(R.layout.activity_splash) {
     override fun initView() {
-        ARouter.getInstance().build(ARouterConfig.Url_MainActivity).navigation()
+        ARouter.getInstance().build(ARouterConfig.Url_LoginActivity).navigation()
 //        when (MMKVUtil.decodeBoolean(Config.IS_LOGIN)) {
 //            true -> ARouter.getInstance().build(ARouterConfig.Url_MainActivity).navigation()
 //            false -> ARouter.getInstance().build(ARouterConfig.Url_LoginActivity).navigation()

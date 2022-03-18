@@ -85,7 +85,7 @@
             android:layout_marginLeft="20dp"
             android:layout_marginTop="20dp"
             android:layout_marginRight="20dp"
-            android:enabled="@{viewModel.flow.enableLoginButton}"
+            android:enabled="@{viewModel.UiState.enableLoginButton}"
             android:onClick="@{()->viewModel.loginClick()}"
             android:text="登录"
             android:textColor="@android:color/white"
